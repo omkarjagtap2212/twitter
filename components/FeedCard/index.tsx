@@ -40,3 +40,6 @@ const FeedCard: React.FC = () => {
 }
 
 export default FeedCard
+
+
+
