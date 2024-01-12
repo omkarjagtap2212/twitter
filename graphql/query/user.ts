@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { graphql } from "../../gql";
 
 
@@ -28,3 +29,22 @@ import { graphql } from "../../gql";
   
   
   `);
+=======
+import {graphql} from '../../gql';
+
+
+
+
+
+
+ export const verifiyGoogleTokenQuery=graphql(` #graphql 
+ query verifiyGoogleTokenQuery($token:String!){
+
+    verfiyGoogleToken(token: $token)
+}
+`)
+
+    
+   
+
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92

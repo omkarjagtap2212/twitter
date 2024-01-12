@@ -18,7 +18,10 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
+<<<<<<< HEAD
   getCurrentUser?: Maybe<User>;
+=======
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92
   verfiyGoogleToken?: Maybe<Scalars['String']['output']>;
 };
 
@@ -36,11 +39,16 @@ export type User = {
   profileImage?: Maybe<Scalars['String']['output']>;
 };
 
+<<<<<<< HEAD
 export type VerifyUserGoogleTokenQueryVariables = Exact<{
+=======
+export type VerifiyGoogleTokenQueryQueryVariables = Exact<{
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92
   token: Scalars['String']['input'];
 }>;
 
 
+<<<<<<< HEAD
 export type VerifyUserGoogleTokenQuery = { __typename?: 'Query', verfiyGoogleToken?: string | null };
 
 export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
@@ -51,3 +59,9 @@ export type GetCurrentUserQuery = { __typename?: 'Query', getCurrentUser?: { __t
 
 export const VerifyUserGoogleTokenDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"VerifyUserGoogleToken"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"token"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verfiyGoogleToken"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"token"},"value":{"kind":"Variable","name":{"kind":"Name","value":"token"}}}]}]}}]} as unknown as DocumentNode<VerifyUserGoogleTokenQuery, VerifyUserGoogleTokenQueryVariables>;
 export const GetCurrentUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetCurrentUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getCurrentUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"profileImage"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}}]} as unknown as DocumentNode<GetCurrentUserQuery, GetCurrentUserQueryVariables>;
+=======
+export type VerifiyGoogleTokenQueryQuery = { __typename?: 'Query', verfiyGoogleToken?: string | null };
+
+
+export const VerifiyGoogleTokenQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"verifiyGoogleTokenQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"token"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verfiyGoogleToken"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"token"},"value":{"kind":"Variable","name":{"kind":"Name","value":"token"}}}]}]}}]} as unknown as DocumentNode<VerifiyGoogleTokenQueryQuery, VerifiyGoogleTokenQueryQueryVariables>;
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92

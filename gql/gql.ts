@@ -13,8 +13,12 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+<<<<<<< HEAD
     " \n  #graphql\n\n  query VerifyUserGoogleToken($token:String!){\n      verfiyGoogleToken(token: $token)\n  \n  }\n  \n  \n  \n  \n  \n  ": types.VerifyUserGoogleTokenDocument,
     "\n  query GetCurrentUser {\n    getCurrentUser {\n      id\n      profileImage\n      email\n      firstName\n      lastName\n    }\n  }\n  \n  \n  ": types.GetCurrentUserDocument,
+=======
+    " #graphql \n query verifiyGoogleTokenQuery($token:String!){\n\n    verfiyGoogleToken(token: $token)\n}\n": types.VerifiyGoogleTokenQueryDocument,
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92
 };
 
 /**
@@ -34,11 +38,15 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+<<<<<<< HEAD
 export function graphql(source: " \n  #graphql\n\n  query VerifyUserGoogleToken($token:String!){\n      verfiyGoogleToken(token: $token)\n  \n  }\n  \n  \n  \n  \n  \n  "): (typeof documents)[" \n  #graphql\n\n  query VerifyUserGoogleToken($token:String!){\n      verfiyGoogleToken(token: $token)\n  \n  }\n  \n  \n  \n  \n  \n  "];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query GetCurrentUser {\n    getCurrentUser {\n      id\n      profileImage\n      email\n      firstName\n      lastName\n    }\n  }\n  \n  \n  "): (typeof documents)["\n  query GetCurrentUser {\n    getCurrentUser {\n      id\n      profileImage\n      email\n      firstName\n      lastName\n    }\n  }\n  \n  \n  "];
+=======
+export function graphql(source: " #graphql \n query verifiyGoogleTokenQuery($token:String!){\n\n    verfiyGoogleToken(token: $token)\n}\n"): (typeof documents)[" #graphql \n query verifiyGoogleTokenQuery($token:String!){\n\n    verfiyGoogleToken(token: $token)\n}\n"];
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

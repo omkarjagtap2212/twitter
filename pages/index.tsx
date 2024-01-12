@@ -9,6 +9,7 @@ import { IoNotificationsOutline } from "react-icons/io5"
 import { MdOutlineMail } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import FeedCard from "@/components/FeedCard";
+<<<<<<< HEAD
 import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
 import toast from "react-hot-toast";
 import { graphqlClient } from "@/clients/api";
@@ -16,6 +17,12 @@ import { verifyUserGoogleQuery } from "@/graphql/query/user";
 import { useCurrentUser } from "@/hooks/user";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 
+=======
+import { CredentialResponse, GoogleLogin } from "@react-oauth/google";import toast from "react-hot-toast";
+import { graphqlClient } from "@/clients/api";
+import { verifiyGoogleTokenQuery } from "@/graphql/query/user";
+ "@react-oauth/google"
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92
 
 
 
@@ -69,6 +76,7 @@ const SidebarMenuItems: TwitterSidebarButton[] = [
 
 
 export default function Home() {
+<<<<<<< HEAD
   const queryClient = useQueryClient()
   const { user } = useCurrentUser()
   console.log(user)
@@ -89,6 +97,35 @@ export default function Home() {
     await queryClient.invalidateQueries(["current-user"])
 
   }, [queryClient])
+=======
+  const handleLoginWithGoogle=useCallback(async(cred:CredentialResponse)=>{
+    
+    const googelToken =cred.credential
+
+
+    if(!googelToken) return toast.error(`Google Token Not found`)
+        
+    //  const { verifyGoogleToken }  = await graphqlClient.request(
+    //   verifiyGoogleTokenQuery,
+    //   {token :googelToken}
+    //  )
+
+    const {verfiyGoogleToken} =await graphqlClient.request(verifiyGoogleTokenQuery ,{token:googelToken})
+
+
+
+
+
+
+
+
+      toast.success(`Verified Successfully`)
+    console.log(verfiyGoogleToken)
+
+    if(verfiyGoogleToken) return window.localStorage.setItem("my_token",verfiyGoogleToken)
+
+  },[])
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92
 
 
 
@@ -111,7 +148,11 @@ export default function Home() {
           </ul>
           {/* <button className="flex justify-start items-start font-medium  pr-4  mr-2 mt-7 bg-blue-500 px-12 py-3 w-full rounded-full" >Tweet</button> */}
           <div className="mt-5 ">
+<<<<<<< HEAD
             <button type="button" className="bg-[#1D9BF0] font-semibold p-4 px-2 text-lg rounded-full w-full ">Tweet</button>
+=======
+            <button className="bg-[#1D9BF0] font-semibold p-4 px-2 text-lg rounded-full w-full ">Tweet</button>
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92
           </div>
         </div>
         {user && <div className="bottom-5 absolute flex gap-2 items-center px-6 py-3 rounded-full hover:bg-[#1D1F23] ">
@@ -144,6 +185,7 @@ export default function Home() {
         <FeedCard />
         <FeedCard />
       </div>
+<<<<<<< HEAD
       <div className='col-span-3 p-5'>
 
         {!user && <div className=" w-full p-5 bg-stone-600 rounded-lg">
@@ -151,6 +193,18 @@ export default function Home() {
           <GoogleLogin onSuccess={handleLoginWithGoogle} />
         </div>}
 
+=======
+      <div className='col-span-3 mx-4 p-4'>
+        <div className=" w-full p-6 bg-stone-600 rounded-lg">
+          <h1 className="my-2  text-2xl" >New to Twitter</h1>
+          <div className="m">
+        <GoogleLogin onSuccess={handleLoginWithGoogle}/>
+
+          </div>
+
+
+        </div>
+>>>>>>> c94cb66032fa9d1e97422f59a23e1e062a53af92
       </div>
 
     </div>
