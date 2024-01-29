@@ -1,7 +1,8 @@
-import { graphql } from "../../gql";
-
-
-  export const verifyUserGoogleQuery=graphql(` 
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getUserByIdQuery = exports.getCurrentUserQuery = exports.verifyUserGoogleQuery = void 0;
+const gql_1 = require("../../gql");
+exports.verifyUserGoogleQuery = (0, gql_1.graphql)(` 
   #graphql
 
   query VerifyUserGoogleToken($token:String!){
@@ -14,8 +15,7 @@ import { graphql } from "../../gql";
   
   
   `);
-
-  export const  getCurrentUserQuery =graphql(` #graphql
+exports.getCurrentUserQuery = (0, gql_1.graphql)(` #graphql
   query GetCurrentUser {
     getCurrentUser {
       id
@@ -40,9 +40,7 @@ import { graphql } from "../../gql";
   
   
   `);
-
-
-  export const getUserByIdQuery=graphql( ` #graphql
+exports.getUserByIdQuery = (0, gql_1.graphql)(` #graphql
   
   query GetuserById($id: ID!) {
     getUserById(id: $id) {
@@ -67,4 +65,4 @@ import { graphql } from "../../gql";
   
   
   
-  `)
+  `);
