@@ -1,5 +1,5 @@
 import { FaImage } from "react-icons/fa"
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useState } from "react"
 // import { it } from "node:test";
 import FeedCard from "@/components/FeedCard";
 import { useCurrentUser } from "@/hooks/user";
@@ -46,6 +46,7 @@ export default function Home(props: HomeProps) {
       event.preventDefault()
       // console.log(input.files)
       const file: File | null | undefined = input.files?.item(0)
+      
       if (!file) return
 
       const { getSignedURLForTweet } = await graphqlClient.request(getSignedURLForTweetQuery, {

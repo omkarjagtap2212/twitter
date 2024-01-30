@@ -1,7 +1,7 @@
 import { graphql } from "../../gql";
 
 
-  export const verifyUserGoogleQuery=graphql(` 
+export const verifyUserGoogleQuery = graphql(` 
   #graphql
 
   query VerifyUserGoogleToken($token:String!){
@@ -15,7 +15,7 @@ import { graphql } from "../../gql";
   
   `);
 
-  export const  getCurrentUserQuery =graphql(` #graphql
+export const getCurrentUserQuery = graphql(` #graphql
   query GetCurrentUser {
     getCurrentUser {
       id
@@ -42,7 +42,7 @@ import { graphql } from "../../gql";
   `);
 
 
-  export const getUserByIdQuery=graphql( ` #graphql
+export const getUserByIdQuery = graphql(` #graphql
   
   query GetuserById($id: ID!) {
     getUserById(id: $id) {
@@ -50,6 +50,16 @@ import { graphql } from "../../gql";
      firstName
      lastName
      profileImage
+     followers {
+      firstName
+      lastName
+      profileImage
+     }
+     following {
+       firstName
+       lastName
+       profileImage
+     }
      tweets {
        content
        id

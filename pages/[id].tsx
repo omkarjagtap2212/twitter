@@ -10,14 +10,15 @@ import { graphqlClient } from "@/clients/api"
 // import { GetuserByIdQuery } from '../gql/graphql';
 import { getUserByIdQuery } from "@/graphql/query/user"
 
-interface serverProps{
-  userInfo?:User
+interface serverProps {
+  userInfo?: User
 
 }
 
 const UserProfilePage: NextPage<serverProps> = (props) => {
   // const { user } = useCurrentUser()
   const router = useRouter()
+  console.log(props.userInfo)
 
   // console.log(props)
 
@@ -35,6 +36,10 @@ const UserProfilePage: NextPage<serverProps> = (props) => {
           <div className=" p-4 border-b border-b-gray-800">
             {props.userInfo?.profileImage && <Image className="rounded-full" src={props.userInfo?.profileImage} alt="userImgae" width={100} height={100} />}
             <h1 className="text-2xl font-bold mt-5">Omkar Jagtap</h1>
+            <div className=" flex gap-4 mt-2 text-sm text-gray-400">
+              <span>{props.userInfo?.followers?.length} Followers</span>
+              <span>{props.userInfo?.following?.length} Following</span>
+            </div>
 
           </div>
           <div>
@@ -47,17 +52,17 @@ const UserProfilePage: NextPage<serverProps> = (props) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<serverProps>=async (context) => {
+export const getServerSideProps: GetServerSideProps<serverProps> = async (context) => {
   const id = context.query.id as string | undefined;
   // console.log(id)
-  if (!id) return { notFound: true ,props:{userInfo:undefined}}
+  if (!id) return { notFound: true, props: { userInfo: undefined } }
 
   const userInfo = await graphqlClient.request(getUserByIdQuery, { id })
 
-  if(!userInfo?.getUserById) return {notFound:true}
+  if (!userInfo?.getUserById) return { notFound: true }
   return {
     props: {
-      userInfo:userInfo.getUserById as  User,
+      userInfo: userInfo.getUserById as User,
     },
 
 
