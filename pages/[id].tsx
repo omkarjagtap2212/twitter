@@ -18,7 +18,7 @@ interface serverProps {
 const UserProfilePage: NextPage<serverProps> = (props) => {
   // const { user } = useCurrentUser()
   const router = useRouter()
-  console.log(props.userInfo)
+  console.log(props.userInfo?.followers)
 
   // console.log(props)
 
